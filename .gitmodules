@@ -1,0 +1,3 @@
+[submodule "notify.el"]
+	path = notify.el
+	url = https://github.com/tkhoa2711/notify.el.git
