@@ -1,5 +1,9 @@
 ;;; pomodoro.el - Pomodoro technique with Emacs
 
+(defgroup pomodoro nil
+  "Pomodoro practice with Emacs."
+  :group 'convenience)
+
 (require 'notify)
 
 (defvar pomodoro-work-duration (* 25 60.0))
