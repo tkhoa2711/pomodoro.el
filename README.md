@@ -19,7 +19,7 @@ When you're done for the day:
 
     M-x pomodoro-stop
 
-To start working immediately when your Emac starts up, put this line some where in your emacs init file:
+To start working immediately when your Emacs starts up, put this line some where in your emacs init file:
     
     (pomodoro-work)
 
