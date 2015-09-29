@@ -11,14 +11,17 @@ Simply clone this repository to your favorite directory in `load-path`:
 
 ## Usage
 
-In Emacs, fire up `ielm`:
+In Emacs:
 
-    (require 'pomodoro)
-    (pomodoro-work)
+    M-x pomodoro-work
 
 When you're done for the day:
 
-    (pomodoro-stop)
+    M-x pomodoro-stop
+
+To start working immediately when your Emac starts up, put this line some where in your emacs init file:
+    
+    (pomodoro-work)
 
 ## License
 
