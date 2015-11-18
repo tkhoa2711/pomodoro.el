@@ -43,7 +43,7 @@
 (defun pomodoro-break (duration)
   "Break time!"
   (interactive)
-  (pomodoro-notify (format "Have a break! [%s minutes]" duration))
+  (pomodoro-notify (format "Have a break! [%s minutes]" (/ duration 60)))
   (setq pomodoro-work-state 'break)
   (setq pomodoro-timer (run-at-time duration nil 'pomodoro-timer-handler)))
 
