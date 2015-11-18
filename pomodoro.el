@@ -29,23 +29,27 @@
 (defvar pomodoro-timer nil
   "The internal timer.")
 
+(defun pomodoro-notify (text)
+  "Show TEXT message from pomodoro."
+  (notify "pomodoro" text)
+
 (defun pomodoro-work ()
   "Let's get it started!"
   (interactive)
-  (notify "pomodoro" "Let's get it started!")
+  (pomodoro-notify "Let's get it started!")
   (setq pomodoro-work-state 'work)
   (setq pomodoro-timer (run-at-time pomodoro-work-duration nil 'pomodoro-timer-handler)))
 
 (defun pomodoro-break (duration)
   "Break time!"
   (interactive)
-  (notify "pomodoro" "Have a break!")
+  (pomodoro-notify (format "Have a break! [%s minutes]" duration))
   (setq pomodoro-work-state 'break)
   (setq pomodoro-timer (run-at-time duration nil 'pomodoro-timer-handler)))
 
 (defun pomodoro-stop ()
   (interactive)
-  (notify "pomodoro" "Done!")
+  (pomodoro-notify "Done!")
   (setq pomodoro-work-state nil)
   (setq pomodoro-break-count 0)
   (setq pomodoro-timer (cancel-timer pomodoro-timer)))
