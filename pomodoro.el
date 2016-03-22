@@ -1,5 +1,21 @@
 ;;; pomodoro.el - Pomodoro technique with Emacs
 
+;;                  work
+;;            ,---------------------.
+;;            |                     |
+;;            |     break           |
+;;            |   ,-->[break]-------'
+;;            |  /
+;;    start   v /   stop
+;; -------->[work]------->[[done]]
+;;            ^ \
+;;            |  \
+;;            |   `-->[long-break]--.
+;;            |  long-break         |
+;;            |                     |
+;;            `---------------------'
+;;                  work
+
 (defgroup pomodoro nil
   "Pomodoro practice with Emacs."
   :group 'convenience)
