@@ -5,6 +5,15 @@
   :group 'convenience)
 
 (require 'notify)
+(require 'log4e)
+
+;; enable logging and setup logs format
+
+(log4e:deflogger "pomodoro" "%t [%l] %m" "%H:%M:%S")
+(pomodoro--log-enable-logging)
+(pomodoro--log-enable-messaging "*pomodoro-log*")
+
+;; customizable settings
 
 (defvar pomodoro-work-duration (* 25 60.0)
   "Duration of a `work'.")
@@ -32,6 +41,7 @@
 (defun pomodoro-notify (text)
   "Show TEXT message from pomodoro."
   (notify "pomodoro" text)
+  (pomodoro--log-info text))
 
 (defun pomodoro-work ()
   "Let's get it started!"
@@ -48,6 +58,7 @@
   (setq pomodoro-timer (run-at-time duration nil 'pomodoro-timer-handler)))
 
 (defun pomodoro-stop ()
+  "Done for the day!"
   (interactive)
   (pomodoro-notify "Done!")
   (setq pomodoro-work-state nil)
