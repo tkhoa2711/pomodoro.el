@@ -20,7 +20,7 @@
   "Pomodoro practice with Emacs."
   :group 'convenience)
 
-(require 'notify)
+(require 'alert)
 (require 'log4e)
 
 ;; enable logging and setup logs format
@@ -56,8 +56,8 @@
 
 (defun pomodoro-notify (text)
   "Show TEXT message from pomodoro."
-  (notify "pomodoro" text)
-  (pomodoro--log-info text))
+  (pomodoro--log-info text)
+  (alert text :title "pomodoro" :style 'pomodoro))
 
 (defun pomodoro-work ()
   "Let's get it started!"
